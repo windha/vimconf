@@ -1,0 +1,226 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/yz_env/webroot/iron
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +15 v2/api/showcase/controllers/FeatureV2.php
+badd +4 v2/api/showcase/controllers/Ad.php
+badd +238 v2/api/showcase/controllers/CategoryV2.php
+badd +1 v2/api/showcase/controllers/CustomComponentV2.php
+badd +248 v2/api/showcase/controllers/HomepageV2.php
+badd +23 resource/config/nova_routes.php
+badd +53 v2/www/showcase/service/CategoryV2.php
+badd +216 v2/www/showcase/service/FeatureV2.php
+argglobal
+silent! argdel *
+edit v2/www/showcase/service/CategoryV2.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+7,35fold
+36,55fold
+56,65fold
+66,77fold
+83,83fold
+78,88fold
+89,147fold
+168,168fold
+173,173fold
+148,201fold
+218,218fold
+223,223fold
+202,248fold
+249,269fold
+let s:l = 53 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+53
+normal! 0
+tabedit v2/www/showcase/service/FeatureV2.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+7,37fold
+38,70fold
+71,85fold
+86,96fold
+97,106fold
+107,116fold
+117,122fold
+124,151fold
+183,183fold
+190,190fold
+200,200fold
+207,207fold
+221,221fold
+238,238fold
+255,258fold
+153,279fold
+297,297fold
+303,303fold
+281,329fold
+330,352fold
+356,363fold
+let s:l = 216 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+216
+normal! 0
+tabedit v2/api/showcase/controllers/HomepageV2.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+3,5fold
+17,21fold
+22,22fold
+24,30fold
+31,49fold
+50,72fold
+73,89fold
+90,111fold
+112,133fold
+135,150fold
+152,157fold
+160,167fold
+168,183fold
+184,199fold
+200,215fold
+216,232fold
+233,241fold
+242,247fold
+let s:l = 248 - ((38 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+248
+normal! 0
+tabedit resource/config/nova_routes.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 23 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+23
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/api/showcase/controllers/Ad.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+4,5fold
+9,9fold
+11,14fold
+16,41fold
+43,68fold
+70,98fold
+99,134fold
+135,143fold
+144,148fold
+4
+normal! zc
+9
+normal! zc
+11
+normal! zc
+16
+normal! zc
+43
+normal! zc
+70
+normal! zc
+99
+normal! zc
+135
+normal! zc
+144
+normal! zc
+let s:l = 4 - ((3 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+4
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

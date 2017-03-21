@@ -1,0 +1,132 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/yz_env/webroot/iron
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +1 v2/api/common/controllers/open/Qiniu.php
+badd +282 v2/api/showcase/controllers/FeatureV2.php
+badd +38 vendor/iron/iron-lib/_public_library/Qiniu.php
+argglobal
+silent! argdel *
+edit v2/api/common/controllers/open/Qiniu.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 86) / 173)
+exe 'vert 2resize ' . ((&columns * 141 + 86) / 173)
+argglobal
+enew
+file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+3,4fold
+8,64fold
+65,111fold
+112,145fold
+146,165fold
+let s:l = 172 - ((34 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+172
+normal! 038|
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 86) / 173)
+exe 'vert 2resize ' . ((&columns * 141 + 86) / 173)
+tabedit vendor/iron/iron-lib/_public_library/Qiniu.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+3,3fold
+4,4fold
+5,5fold
+6,6fold
+7,7fold
+8,8fold
+14,49fold
+50,74fold
+75,88fold
+89,113fold
+114,128fold
+129,142fold
+143,163fold
+164,171fold
+172,185fold
+186,199fold
+200,208fold
+209,228fold
+229,258fold
+259,279fold
+280,353fold
+354,376fold
+377,438fold
+439,459fold
+460,478fold
+479,508fold
+14
+normal! zo
+89
+normal! zo
+280
+normal! zo
+let s:l = 38 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+38
+normal! 0
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

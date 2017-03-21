@@ -1,0 +1,133 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/zan_env/showcase/client
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +72 get.php
+badd +32 vendor/nova-service/showcase/gen-php/Feature/Service/CustomComponentService.php
+badd +19 ~/yz_env/webroot/iron/v2/wap/showcase/service/ComponentV2.php
+badd +11 ~/yz_env/webroot/iron/v2/www/showcase/service/CustomComponentV2.php
+badd +0 ~/yz_env/webroot/iron/v2/api/refactor/showcase/tests/Service/Feature/CustomComponentTest.php
+argglobal
+silent! argdel *
+argadd get.php
+edit ~/yz_env/webroot/iron/v2/api/refactor/showcase/tests/Service/Feature/CustomComponentTest.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 95) / 191)
+exe 'vert 2resize ' . ((&columns * 79 + 95) / 191)
+exe 'vert 3resize ' . ((&columns * 79 + 95) / 191)
+argglobal
+enew
+file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,18fold
+22,22fold
+23,23fold
+25,25fold
+27,39fold
+40,51fold
+52,66fold
+67,77fold
+78,94fold
+95,110fold
+111,126fold
+127,139fold
+140,153fold
+154,164fold
+165,176fold
+177,187fold
+188,217fold
+218,244fold
+245,254fold
+255,262fold
+263,270fold
+271,289fold
+290,297fold
+298,317fold
+318,363fold
+364,376fold
+377,388fold
+389,440fold
+441,452fold
+453,506fold
+let s:l = 46 - ((24 * winheight(0) + 21) / 43)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+46
+normal! 037|
+wincmd w
+argglobal
+edit get.php
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+9,9fold
+12,40fold
+12
+normal! zo
+let s:l = 77 - ((33 * winheight(0) + 21) / 43)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+77
+normal! 015|
+wincmd w
+3wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 95) / 191)
+exe 'vert 2resize ' . ((&columns * 79 + 95) / 191)
+exe 'vert 3resize ' . ((&columns * 79 + 95) / 191)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

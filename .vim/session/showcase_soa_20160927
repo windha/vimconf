@@ -1,0 +1,564 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/yz_env/webroot/iron
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +117 v2/api/showcase/controllers/Usercenter.php
+badd +77 v2/api/showcase/service/Usercenter.php
+badd +21 v2/wap/showcase/service/Usercenter.php
+badd +21 v2/www/showcase/service/Usercenter.php
+badd +5 vendor/kdt-lib/nova/src/Network/Client/Swoole.php
+badd +48 resource/config/nova_routes.php
+badd +46 vendor/zan-config/iron/files/nova.php
+badd +10 resource/tether/callinfo.xml
+badd +52 vendor/nova-service/showcase/gen-php/Usercenter/Service/UserCenterService.php
+badd +18 v2/www/index.php
+badd +19 v2/api/refactor/showcase/src/Feature/Config/Cache.php
+badd +14 resource/cache/showcase/usercenter.php
+badd +14 resource/cache/showcase/homepage.php
+badd +25 resource/cache/showcase/feature.php
+badd +71 v2/api/showcase/service/Ad.php
+badd +5 v2/api/showcase/service/ShopNav.php
+badd +2 ~/note/newuser_vote/table.sql
+badd +47 v2/api/showcase/controllers/ShopNav.php
+badd +1 v2/api/showcase/controllers/Ad.php
+badd +5 v2/www/showcase/service/Ad.php
+badd +21 v2/www/showcase/service/ShopNav.php
+badd +0 v2/api/task/models/Team.php
+badd +3 v2/wap/showcase/controllers/Base.php
+badd +4 v2/wap/showcase/service/ShopNav.php
+badd +12 v2/wap/showcase/controllers/Shopnav.php
+badd +59 v2/wap/showcase/controllers/Usercenter.php
+badd +17 v2/wap/showcase/service/Ad.php
+argglobal
+silent! argdel *
+argadd v2/api/showcase/controllers/Usercenter.php
+edit resource/tether/callinfo.xml
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 10 - ((9 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+10
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/api/showcase/controllers/Usercenter.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+2,3fold
+9,38fold
+40,66fold
+70,122fold
+125,130fold
+131,139fold
+140,145fold
+let s:l = 117 - ((116 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+117
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/api/showcase/controllers/ShopNav.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+8,8fold
+10,13fold
+15,48fold
+50,78fold
+80,97fold
+98,117fold
+118,126fold
+127,132fold
+8
+normal! zc
+10
+normal! zc
+15
+normal! zc
+50
+normal! zc
+80
+normal! zc
+98
+normal! zc
+118
+normal! zc
+127
+normal! zc
+let s:l = 30 - ((20 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+30
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/wap/showcase/service/ShopNav.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 4 - ((3 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+4
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/wap/showcase/service/Usercenter.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+18,20fold
+22,50fold
+51,80fold
+81,94fold
+let s:l = 21 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+21
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/api/showcase/service/Usercenter.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+6,6fold
+7,30fold
+32,48fold
+49,58fold
+60,75fold
+77,104fold
+105,117fold
+118,135fold
+6
+normal! zc
+7
+normal! zc
+32
+normal! zc
+49
+normal! zc
+60
+normal! zc
+77
+normal! zc
+105
+normal! zc
+118
+normal! zc
+let s:l = 60 - ((59 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+60
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/vendor/nova-service/showcase/gen-php/Usercenter/Service/UserCenterService.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=4
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+13,14fold
+17,18fold
+22,26fold
+57,67fold
+54,67fold
+47,67fold
+44,67fold
+37,67fold
+34,67fold
+27,67fold
+13
+normal! zc
+17
+normal! zc
+22
+normal! zc
+27
+normal! zo
+34
+normal! zo
+37
+normal! zo
+44
+normal! zo
+47
+normal! zo
+54
+normal! zo
+54
+normal! zc
+47
+normal! zc
+44
+normal! zc
+37
+normal! zc
+34
+normal! zc
+27
+normal! zc
+let s:l = 10 - ((9 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+10
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/api/showcase/service/Ad.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+11,11fold
+6,33fold
+35,62fold
+64,97fold
+99,119fold
+121,134fold
+6
+normal! zo
+6
+normal! zc
+35
+normal! zc
+64
+normal! zc
+99
+normal! zc
+121
+normal! zc
+let s:l = 71 - ((36 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+71
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/vendor/zan-config/iron/files/nova.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 6 - ((5 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+6
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/api/showcase/service/ShopNav.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+6,6fold
+13,13fold
+8,35fold
+37,71fold
+73,89fold
+91,104fold
+105,108fold
+let s:l = 102 - ((31 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+102
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/www/showcase/service/Ad.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+9,19fold
+21,40fold
+42,48fold
+let s:l = 5 - ((4 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+5
+normal! 0
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/wap/showcase/controllers/Base.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+10,18fold
+19,27fold
+28,33fold
+35,67fold
+69,84fold
+86,106fold
+108,120fold
+122,135fold
+136,152fold
+153,158fold
+159,165fold
+166,174fold
+175,179fold
+180,207fold
+208,227fold
+228,232fold
+233,257fold
+258,274fold
+10
+normal! zo
+19
+normal! zo
+28
+normal! zo
+35
+normal! zo
+69
+normal! zo
+86
+normal! zo
+108
+normal! zo
+122
+normal! zo
+136
+normal! zo
+153
+normal! zo
+159
+normal! zo
+166
+normal! zo
+175
+normal! zo
+180
+normal! zo
+208
+normal! zo
+228
+normal! zo
+233
+normal! zo
+258
+normal! zo
+let s:l = 3 - ((2 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 02|
+lcd ~/yz_env/webroot/iron
+tabedit ~/yz_env/webroot/iron/v2/api/task/models/Team.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,5fold
+7,7fold
+9,9fold
+12,12fold
+13,13fold
+16,16fold
+19,19fold
+20,20fold
+21,21fold
+22,22fold
+24,587fold
+588,602fold
+603,615fold
+616,627fold
+628,639fold
+640,646fold
+647,651fold
+652,656fold
+657,661fold
+662,666fold
+667,671fold
+672,683fold
+684,695fold
+696,707fold
+708,725fold
+726,743fold
+744,752fold
+753,760fold
+24
+normal! zo
+let s:l = 263 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+263
+normal! 010|
+lcd ~/yz_env/webroot/iron
+tabnext 12
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

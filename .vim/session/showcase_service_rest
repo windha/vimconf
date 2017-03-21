@@ -1,0 +1,163 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/phpservice/showcase/showcase-api
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +171 src/Feature/Service/FeatureService.php
+badd +43 src/Feature/Util/Component.php
+badd +95 vendor/php-lib/iron-lib-async/src/Showcase/DataShowcase.php
+badd +53 vendor/php-lib/iron-lib-async/src/Showcase/DataComponents.php
+argglobal
+silent! argdel *
+edit src/Feature/Util/Component.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 86) / 173)
+exe '2resize ' . ((&lines * 28 + 21) / 42)
+exe 'vert 2resize ' . ((&columns * 141 + 86) / 173)
+exe '3resize ' . ((&lines * 10 + 21) / 42)
+exe 'vert 3resize ' . ((&columns * 141 + 86) / 173)
+argglobal
+enew
+file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+7,20fold
+21,34fold
+35,53fold
+54,107fold
+let s:l = 46 - ((20 * winheight(0) + 14) / 28)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+46
+normal! 0
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 86) / 173)
+exe '2resize ' . ((&lines * 28 + 21) / 42)
+exe 'vert 2resize ' . ((&columns * 141 + 86) / 173)
+exe '3resize ' . ((&lines * 10 + 21) / 42)
+exe 'vert 3resize ' . ((&columns * 141 + 86) / 173)
+tabedit vendor/php-lib/iron-lib-async/src/Showcase/DataComponents.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 86) / 173)
+exe 'vert 2resize ' . ((&columns * 141 + 86) / 173)
+argglobal
+enew
+file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+3,6fold
+16,16fold
+18,18fold
+20,20fold
+22,22fold
+24,24fold
+26,26fold
+28,38fold
+40,44fold
+46,63fold
+65,78fold
+80,132fold
+134,169fold
+171,175fold
+176,179fold
+46
+normal! zo
+65
+normal! zo
+80
+normal! zo
+let s:l = 53 - ((33 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+53
+normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 86) / 173)
+exe 'vert 2resize ' . ((&columns * 141 + 86) / 173)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

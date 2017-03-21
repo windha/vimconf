@@ -1,0 +1,828 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/phpservice/showcase/showcase-api
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +3 bin/nova-dev
+badd +31 init/ShowcaseApp.php
+badd +6 bin/nova
+badd +10 init/app.php
+badd +257 vendor/zanphp/zan/src/Foundation/Application.php
+badd +27 vendor/mockery/mockery/library/Mockery/Container.php
+badd +3 src/Feature/Dao/CustomComponentDao.php
+badd +18 src/Feature/Dao/Impl/CustomComponentDaoImpl.php
+badd +1 src/Feature/Dao/CategoryDao.php
+badd +1 src/Feature/Dao/Impl/CategoryDaoImpl.php
+badd +8 src/Feature/Dao/Impl/HomepageDaoImpl.php
+badd +29 src/Feature/Service/CustomComponentService.php
+badd +1 src/Feature/Config/Map.php
+badd +14 resource/sql/feature/customcomponent_apply.php
+badd +24 resource/sql/feature/customcomponent.php
+badd +39 resource/sql/feature/category.php
+badd +3 resource/sql/feature/category_feature.php
+badd +167 src/ShopNav/Service/ShopNavService.php
+badd +3 src/ShopNav/Config/Map.php
+badd +1 src/ShopNav/Dao/Impl/ShopNavDaoImpl.php
+badd +12 resource/cache/showcase/shopnav.php
+badd +6 resource/cache/showcase/tag.php
+badd +12 resource/cache/showcase/goods_alias.php
+badd +1 resource/cache/showcase/feature.php
+badd +3 resource/cache/showcase/uuid.php
+badd +4 resource/cache/showcase/feature_alias.php
+badd +2 resource/cache/showcase/homepage.php
+badd +6 resource/cache/showcase/usercenter.php
+badd +2 src/UserCenter/Service/UserCenterService.php
+badd +1 init/WorkerStart/readme.md
+badd +159 vendor/zanphp/plugins/debugger/src/TelnetServer.php
+badd +33 vendor/zanphp/zan/src/Network/Tcp/Server.php
+badd +39 src/Ad/Service/AdService.php
+badd +8 src/Ad/Config/Map.php
+badd +34 src/Ad/Dao/Impl/AdDaoImpl.php
+badd +4 src/Component/Config/ErrorCodes.php
+badd +16 src/UserCenter/Dao/UserCenterDao.php
+badd +1 .gitignore
+badd +1 src/Ad/Config/ErrorCodes.php
+badd +17 src/UserCenter/Config/ErrorCodes.php
+badd +22 src/Feature/Config/ErrorCodes.php
+badd +1 src/Feature/Config/Cache.php
+badd +1 src/ShopNav/Config/ErrorCodes.php
+badd +55 src/Feature/Service/FeatureService.php
+badd +150 vendor/zanphp/zan/src/Network/Tcp/Request.php
+badd +1 vendor/zanphp/nova/src/Nova.php
+badd +130 vendor/zanphp/nova/src/Service/PackerFacade.php
+badd +32 vendor/zanphp/nova/src/Service/ClassMap.php
+badd +52 composer.json
+badd +5 src/Ad/Dao/AdDao.php
+badd +4 src/UserCenter/Dao/Impl/UserCenterDaoImpl.php
+badd +2 src/UserCenter/Config/Map.php
+badd +1 src/ShopNav/Dao/ShopNavDao.php
+badd +4 bin/publish/online.sh
+badd +5 bin/publish/offline.sh
+badd +55 vendor/symfony/console/Application.php
+badd +20 vendor/zanphp/zan/src/Foundation/Booting/InitializeEnv.php
+badd +13 vendor/zanphp/zan/src/Contract/Foundation/Bootable.php
+badd +31 vendor/zanphp/zan/src/Foundation/Core/Env.php
+badd +16 vendor/zanphp/zan/src/Foundation/Booting/InitializeCliInput.php
+badd +14 vendor/zanphp/zan/src/Foundation/Booting/InitializeRunMode.php
+badd +48 vendor/zanphp/zan/src/Foundation/Core/RunMode.php
+badd +21 vendor/zanphp/zan/src/Foundation/Booting/InitializeDebug.php
+badd +42 vendor/zanphp/zan/src/Foundation/Core/Debug.php
+badd +21 vendor/zanphp/zan/src/Foundation/Booting/InitializePathes.php
+badd +64 vendor/zanphp/zan/src/Foundation/Core/Path.php
+badd +6 vendor/php-lib/iron-lib-async/src/Es/Config.php
+badd +17 vendor/zanphp/zan/src/Foundation/Core/Config.php
+badd +137 vendor/zanphp/zan/src/Utilities/Types/Arr.php
+badd +13 vendor/zanphp/zan/src/Utilities/Types/Dir.php
+badd +1 vendor/zanphp/zan/src/Utilities/Types/Direction.php
+badd +3 vendor/zanphp/zan/src/Utilities/Types/Enum.php
+badd +1 vendor/zanphp/zan/src/Utilities/Types/FileType.php
+badd +3 vendor/zanphp/zan/src/Utilities/Types/Fluent.php
+badd +3 vendor/zanphp/zan/src/Utilities/Types/Func.php
+badd +79 vendor/zanphp/zan/src/Utilities/Types/Ip.php
+badd +1 vendor/zanphp/zan/src/Utilities/Types/Map.php
+badd +42 vendor/zanphp/zan/src/Utilities/Types/Money.php
+badd +1 vendor/zanphp/zan/src/Utilities/Types/Number.php
+badd +2 vendor/zanphp/zan/src/Utilities/Types/ObjectArray.php
+badd +6 vendor/zanphp/zan/src/Utilities/Types/Qrcode.php
+badd +95 vendor/zanphp/nova/src/Utils/Arr.php
+badd +1 vendor/zanphp/zan/src/Foundation/Core/IronConfig.php
+badd +13 vendor/zanphp/zan/src/Foundation/Core/ConfigLoader.php
+badd +25 vendor/zanphp/zan/src/Foundation/Booting/LoadConfiguration.php
+badd +13 vendor/zanphp/zan/src/Foundation/Core/AppConfig.php
+badd +4 resource/config/share/table/ad.php
+badd +3 resource/config/share/table/customcomponent.php
+badd +4 resource/config/share/table/feature.php
+badd +1 resource/config/share/table/shopnav.php
+badd +5 resource/config/share/table/showcase.php
+badd +5 resource/config/share/table/usercenter.php
+badd +1 resource/config/share/route.php
+badd +40 vendor/zanphp/zan/src/Foundation/Booting/InitializeSharedObjects.php
+badd +1 vendor/zanphp/zan/src/Foundation/Container/Di.php
+badd +23 vendor/zanphp/zan/src/Foundation/Booting/InitializeCache.php
+badd +17 vendor/zanphp/zan/src/Foundation/Booting/InitializeKv.php
+badd +29 vendor/zanphp/zan/src/Foundation/Booting/LoadFiles.php
+badd +134 vendor/mockery/mockery/library/Mockery/Loader.php
+badd +11 vendor/zanphp/zan/src/Network/Server/Factory.php
+badd +3 vendor/zanphp/zan/.zan-ide-helper.php
+badd +21 vendor/zanphp/zan/src/Network/Tcp/WorkerStart/InitializeServerRegister.php
+badd +69 vendor/zanphp/zan/src/Network/ServerManager/ServerRegisterInitiator.php
+badd +19 vendor/zanphp/zan/src/Network/Server/ServerBase.php
+badd +11 vendor/zanphp/zan/src/Network/ServerManager/ServiceUnregister.php
+badd +21 vendor/zanphp/zan/src/Network/Http/ServerStart/InitializeSqlMap.php
+badd +11 vendor/zanphp/zan/src/Store/Database/Sql/SqlMapInitiator.php
+badd +35 vendor/zanphp/zan/src/Network/Server/ServerStart/InitLogConfig.php
+badd +35 vendor/zanphp/zan/src/Network/Http/ServerStart/InitializeMiddleware.php
+badd +16 vendor/zanphp/zan/src/Network/Server/WorkerStart/InitializeConnectionPool.php
+badd +64 vendor/zanphp/zan/src/Network/Connection/ConnectionInitiator.php
+badd +19 vendor/zanphp/zan/src/Network/Server/WorkerStart/InitializeServerDiscovery.php
+badd +63 vendor/zanphp/zan/src/Utilities/helpers.php
+badd +2 vendor/zanphp/zan/src/Foundation/Container/Container.php
+badd +20 vendor/zanphp/zan/src/Foundation/Coroutine/Parallel.php
+badd +0 vendor/zanphp/zan/src/Utilities/DesignPattern/Singleton.php
+argglobal
+silent! argdel *
+argadd bin/nova-dev
+edit src/ShopNav/Dao/Impl/ShopNavDaoImpl.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 57 + 65) / 130)
+exe 'vert 2resize ' . ((&columns * 115 + 65) / 130)
+argglobal
+enew
+file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd ~/phpservice/showcase/showcase-api
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,7fold
+11,17fold
+18,25fold
+26,34fold
+35,41fold
+5
+normal! zc
+11
+normal! zc
+18
+normal! zc
+26
+normal! zc
+35
+normal! zc
+let s:l = 5 - ((4 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+5
+normal! 01|
+lcd ~/phpservice/showcase/showcase-api
+wincmd w
+exe 'vert 1resize ' . ((&columns * 57 + 65) / 130)
+exe 'vert 2resize ' . ((&columns * 115 + 65) / 130)
+tabedit ~/phpservice/showcase/showcase-api/src/Ad/Config/ErrorCodes.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+7,7fold
+8,8fold
+9,9fold
+10,10fold
+12,18fold
+19,25fold
+9
+normal! zo
+10
+normal! zo
+12
+normal! zo
+19
+normal! zo
+let s:l = 10 - ((9 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+10
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+tabedit ~/phpservice/showcase/showcase-api/vendor/zanphp/zan/src/Foundation/Core/Path.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 65) / 130)
+argglobal
+enew
+file ~/phpservice/showcase/showcase-api/NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd ~/phpservice/showcase/showcase-api
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+11,13fold
+16,16fold
+17,17fold
+18,18fold
+19,19fold
+20,20fold
+21,21fold
+22,22fold
+23,23fold
+24,24fold
+25,25fold
+26,26fold
+27,27fold
+28,28fold
+30,30fold
+31,31fold
+32,32fold
+33,33fold
+34,34fold
+35,35fold
+36,36fold
+37,37fold
+38,38fold
+39,39fold
+40,40fold
+41,41fold
+42,42fold
+43,43fold
+45,45fold
+46,46fold
+47,47fold
+48,48fold
+49,49fold
+50,50fold
+51,51fold
+52,52fold
+53,53fold
+54,54fold
+55,55fold
+56,56fold
+57,57fold
+58,58fold
+60,66fold
+67,71fold
+72,76fold
+77,80fold
+81,84fold
+85,89fold
+90,94fold
+95,99fold
+100,104fold
+105,109fold
+110,114fold
+115,119fold
+120,124fold
+125,128fold
+129,132fold
+133,137fold
+138,142fold
+143,147fold
+148,164fold
+165,181fold
+11
+normal! zo
+17
+normal! zo
+30
+normal! zo
+60
+normal! zo
+67
+normal! zo
+72
+normal! zo
+77
+normal! zo
+81
+normal! zo
+85
+normal! zo
+90
+normal! zo
+95
+normal! zo
+100
+normal! zo
+105
+normal! zo
+110
+normal! zo
+115
+normal! zo
+120
+normal! zo
+125
+normal! zo
+129
+normal! zo
+133
+normal! zo
+138
+normal! zo
+143
+normal! zo
+148
+normal! zo
+165
+normal! zo
+let s:l = 92 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+92
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 65) / 130)
+tabedit ~/phpservice/showcase/showcase-api/vendor/zanphp/zan/src/Foundation/Core/Path.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+11,13fold
+16,16fold
+17,17fold
+18,18fold
+19,19fold
+20,20fold
+21,21fold
+22,22fold
+23,23fold
+24,24fold
+25,25fold
+26,26fold
+27,27fold
+28,28fold
+30,30fold
+31,31fold
+32,32fold
+33,33fold
+34,34fold
+35,35fold
+36,36fold
+37,37fold
+38,38fold
+39,39fold
+40,40fold
+41,41fold
+42,42fold
+43,43fold
+45,45fold
+46,46fold
+47,47fold
+48,48fold
+49,49fold
+50,50fold
+51,51fold
+52,52fold
+53,53fold
+54,54fold
+55,55fold
+56,56fold
+57,57fold
+58,58fold
+60,66fold
+67,71fold
+72,76fold
+77,80fold
+81,84fold
+85,89fold
+90,94fold
+95,99fold
+100,104fold
+105,109fold
+110,114fold
+115,119fold
+120,124fold
+125,128fold
+129,132fold
+133,137fold
+138,142fold
+143,147fold
+148,164fold
+165,181fold
+11
+normal! zo
+17
+normal! zo
+22
+normal! zo
+30
+normal! zo
+32
+normal! zo
+47
+normal! zo
+52
+normal! zo
+60
+normal! zo
+67
+normal! zo
+72
+normal! zo
+77
+normal! zo
+81
+normal! zo
+85
+normal! zo
+90
+normal! zo
+95
+normal! zo
+100
+normal! zo
+105
+normal! zo
+110
+normal! zo
+115
+normal! zo
+120
+normal! zo
+125
+normal! zo
+129
+normal! zo
+133
+normal! zo
+138
+normal! zo
+143
+normal! zo
+148
+normal! zo
+165
+normal! zo
+let s:l = 180 - ((36 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+180
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+tabedit ~/phpservice/showcase/showcase-api/vendor/zanphp/zan/src/Foundation/Core/Path.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 65) / 130)
+argglobal
+enew
+file ~/phpservice/showcase/showcase-api/NERD_tree_2
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd ~/phpservice/showcase/showcase-api
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+11,13fold
+16,16fold
+17,17fold
+18,18fold
+19,19fold
+20,20fold
+21,21fold
+22,22fold
+23,23fold
+24,24fold
+25,25fold
+26,26fold
+27,27fold
+28,28fold
+30,30fold
+31,31fold
+32,32fold
+33,33fold
+34,34fold
+35,35fold
+36,36fold
+37,37fold
+38,38fold
+39,39fold
+40,40fold
+41,41fold
+42,42fold
+43,43fold
+45,45fold
+46,46fold
+47,47fold
+48,48fold
+49,49fold
+50,50fold
+51,51fold
+52,52fold
+53,53fold
+54,54fold
+55,55fold
+56,56fold
+57,57fold
+58,58fold
+60,66fold
+67,71fold
+72,76fold
+77,80fold
+81,84fold
+85,89fold
+90,94fold
+95,99fold
+100,104fold
+105,109fold
+110,114fold
+115,119fold
+120,124fold
+125,128fold
+129,132fold
+133,137fold
+138,142fold
+143,147fold
+148,164fold
+165,181fold
+11
+normal! zo
+16
+normal! zo
+30
+normal! zo
+60
+normal! zo
+67
+normal! zo
+72
+normal! zo
+77
+normal! zo
+81
+normal! zo
+85
+normal! zo
+90
+normal! zo
+95
+normal! zo
+100
+normal! zo
+105
+normal! zo
+110
+normal! zo
+115
+normal! zo
+120
+normal! zo
+125
+normal! zo
+129
+normal! zo
+133
+normal! zo
+138
+normal! zo
+143
+normal! zo
+148
+normal! zo
+165
+normal! zo
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 65) / 130)
+tabedit ~/phpservice/showcase/showcase-api/init/app.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,5fold
+let s:l = 3 - ((2 * winheight(0) + 15) / 31)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 041|
+lcd ~/phpservice/showcase/showcase-api
+tabedit ~/phpservice/showcase/showcase-api/src/UserCenter/Dao/Impl/UserCenterDaoImpl.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+10,20fold
+21,29fold
+30,34fold
+35,46fold
+10
+normal! zo
+21
+normal! zo
+30
+normal! zo
+35
+normal! zo
+let s:l = 4 - ((3 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+4
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+tabedit ~/phpservice/showcase/showcase-api/vendor/zanphp/nova/src/Service/PackerFacade.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+13,19fold
+24,37fold
+38,56fold
+57,79fold
+80,126fold
+128,137fold
+138,153fold
+13
+normal! zc
+24
+normal! zc
+38
+normal! zc
+57
+normal! zc
+80
+normal! zc
+128
+normal! zc
+138
+normal! zc
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+tabedit ~/phpservice/showcase/showcase-api/vendor/zanphp/nova/src/Nova.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+10,13fold
+16,20fold
+21,25fold
+26,30fold
+31,35fold
+36,40fold
+41,45fold
+10
+normal! zo
+16
+normal! zo
+21
+normal! zo
+26
+normal! zo
+31
+normal! zo
+36
+normal! zo
+41
+normal! zo
+let s:l = 31 - ((23 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+31
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+tabnext 6
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

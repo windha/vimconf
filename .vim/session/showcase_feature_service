@@ -1,0 +1,627 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/phpservice/showcase/showcase-api
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +24 src/Feature/Dao/Impl/FeatureAliasDaoImpl.php
+badd +1 src/Feature/Dao/Impl/CustomComponentDaoImpl.php
+badd +30 src/Feature/Dao/Impl/CustomComponentApplyDaoImpl.php
+badd +10 src/Feature/Dao/Impl/HomepageDaoImpl.php
+badd +1 src/Feature/Dao/Impl/FeatureDaoImpl.php
+badd +5 src/Feature/Dao/HomepageDao.php
+badd +5 vendor/zanphp/nova/src/Foundation/Traits/InstanceManager.php
+badd +83 vendor/zanphp/nova/src/Foundation/TService.php
+badd +1 init/ServerStart/Notify.php
+badd +13 src/Ad/Dao/Impl/AdDaoImpl.php
+badd +102 src/Ad/Service/AdService.php
+badd +2 src/Component/Config/ErrorCodes.php
+badd +14 src/Feature/Config/Cache.php
+badd +95 src/Feature/Config/Map.php
+badd +288 src/Feature/Service/CategoryService.php
+badd +289 src/Feature/Service/CustomComponentService.php
+badd +532 src/Feature/Service/FeatureService.php
+badd +29 src/Feature/Dao/Impl/CategoryDaoImpl.php
+badd +4 src/Feature/Dao/CategoryFeatureDao.php
+badd +3 src/Feature/Dao/Impl/CategoryFeatureDaoImpl.php
+badd +23 src/Feature/Dao/CustomComponentApplyDao.php
+badd +7 src/Feature/Util/Json.php
+badd +31 vendor/zanphp/zan/src/Utilities/Types/Json.php
+badd +17 src/Feature/Dao/CategoryDao.php
+badd +30 vendor/zanphp/zan/src/Store/Database/Sql/SqlBuilder.php
+badd +3 vendor/zanphp/zan/src/Store/Database/Sql/Validator.php
+badd +144 src/UserCenter/Service/UserCenterService.php
+badd +1 resource/config.php
+badd +1 src/Feature/Dao/FeatureDao.php
+badd +22 src/Feature/Config/ErrorCodes.php
+argglobal
+silent! argdel *
+edit src/Feature/Dao/CustomComponentApplyDao.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 21 - ((20 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+21
+normal! 0
+tabedit src/Feature/Dao/Impl/FeatureAliasDaoImpl.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+7,8fold
+13,28fold
+29,38fold
+39,48fold
+7
+normal! zc
+13
+normal! zc
+29
+normal! zc
+39
+normal! zc
+let s:l = 24 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+24
+normal! 0
+tabedit src/Feature/Service/CustomComponentService.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,17fold
+24,24fold
+25,25fold
+27,27fold
+29,35fold
+36,53fold
+54,72fold
+73,97fold
+98,110fold
+111,123fold
+124,159fold
+160,188fold
+189,212fold
+213,225fold
+226,241fold
+242,254fold
+255,267fold
+279,279fold
+268,297fold
+298,310fold
+311,318fold
+5
+normal! zo
+29
+normal! zo
+36
+normal! zo
+54
+normal! zo
+73
+normal! zo
+98
+normal! zo
+111
+normal! zo
+124
+normal! zo
+160
+normal! zo
+189
+normal! zo
+213
+normal! zo
+226
+normal! zo
+242
+normal! zo
+255
+normal! zo
+268
+normal! zo
+298
+normal! zo
+311
+normal! zo
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+tabedit src/Feature/Service/CustomComponentService.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 289 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+289
+normal! 0
+tabedit vendor/zanphp/zan/src/Store/Database/Sql/Validator.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+12,18fold
+12
+normal! zc
+let s:l = 3 - ((2 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 0
+tabedit src/Feature/Dao/Impl/CustomComponentDaoImpl.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,8fold
+14,21fold
+22,33fold
+34,50fold
+51,55fold
+56,66fold
+67,76fold
+77,86fold
+87,101fold
+102,119fold
+5
+normal! zc
+14
+normal! zc
+22
+normal! zc
+34
+normal! zc
+51
+normal! zc
+56
+normal! zc
+67
+normal! zc
+77
+normal! zc
+87
+normal! zc
+102
+normal! zc
+let s:l = 31 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+31
+normal! 0
+tabedit vendor/zanphp/zan/src/Store/Database/Sql/SqlBuilder.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+14,14fold
+16,21fold
+22,26fold
+27,48fold
+49,66fold
+67,77fold
+78,101fold
+102,126fold
+127,141fold
+142,155fold
+156,160fold
+161,166fold
+167,206fold
+207,243fold
+244,255fold
+256,291fold
+292,314fold
+317,334fold
+335,361fold
+362,376fold
+377,389fold
+390,400fold
+401,412fold
+413,425fold
+426,439fold
+440,452fold
+453,457fold
+458,467fold
+16
+normal! zo
+22
+normal! zo
+27
+normal! zo
+49
+normal! zo
+67
+normal! zo
+78
+normal! zo
+102
+normal! zo
+127
+normal! zo
+142
+normal! zo
+156
+normal! zo
+161
+normal! zo
+167
+normal! zo
+207
+normal! zo
+244
+normal! zo
+256
+normal! zo
+292
+normal! zo
+317
+normal! zo
+335
+normal! zo
+362
+normal! zo
+377
+normal! zo
+390
+normal! zo
+401
+normal! zo
+413
+normal! zo
+426
+normal! zo
+440
+normal! zo
+453
+normal! zo
+458
+normal! zo
+let s:l = 30 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+30
+normal! 0
+tabedit src/Feature/Service/CategoryService.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,21fold
+27,27fold
+28,28fold
+29,29fold
+31,31fold
+33,40fold
+41,58fold
+59,77fold
+78,98fold
+99,129fold
+130,155fold
+156,170fold
+171,193fold
+194,224fold
+225,255fold
+256,285fold
+286,307fold
+308,320fold
+321,333fold
+334,343fold
+344,352fold
+370,370fold
+353,422fold
+5
+normal! zo
+33
+normal! zo
+41
+normal! zo
+59
+normal! zo
+78
+normal! zo
+99
+normal! zo
+130
+normal! zo
+156
+normal! zo
+171
+normal! zo
+194
+normal! zo
+225
+normal! zo
+256
+normal! zo
+286
+normal! zo
+308
+normal! zo
+321
+normal! zo
+334
+normal! zo
+344
+normal! zo
+353
+normal! zo
+let s:l = 266 - ((18 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+266
+normal! 013|
+tabedit src/Feature/Dao/Impl/CategoryFeatureDaoImpl.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,7fold
+11,24fold
+25,29fold
+30,46fold
+47,58fold
+59,70fold
+71,81fold
+82,93fold
+5
+normal! zc
+11
+normal! zc
+25
+normal! zc
+30
+normal! zc
+47
+normal! zc
+59
+normal! zc
+71
+normal! zc
+82
+normal! zc
+let s:l = 3 - ((2 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 0
+tabedit src/Feature/Dao/FeatureDao.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+tabedit src/Feature/Dao/Impl/FeatureDaoImpl.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,8fold
+14,24fold
+25,43fold
+44,62fold
+63,69fold
+70,90fold
+92,102fold
+103,115fold
+116,139fold
+140,161fold
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+tabedit ~/phpservice/showcase/showcase-api/src/UserCenter/Service/UserCenterService.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,17fold
+24,24fold
+26,26fold
+27,27fold
+29,35fold
+36,59fold
+60,76fold
+77,113fold
+114,141fold
+142,150fold
+5
+normal! zc
+24
+normal! zc
+26
+normal! zc
+27
+normal! zc
+29
+normal! zc
+36
+normal! zc
+60
+normal! zc
+77
+normal! zc
+114
+normal! zc
+142
+normal! zc
+let s:l = 16 - ((15 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+16
+normal! 0
+lcd ~/phpservice/showcase/showcase-api
+tabnext 8
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

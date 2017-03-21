@@ -1,0 +1,127 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/zan_env/showcase/mclient
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +13 get.php
+badd +15 vendor/nova-service/material/gen-php/General/Interfaces/MediaService.php
+badd +83 vendor/nova-service/material/gen-php/General/Service/MediaService.php
+badd +11 vendor/kdt-lib/nova/src/Foundation/TService.php
+badd +1 vendor/kdt-lib/nova/src/Network/Client.php
+badd +38 vendor/kdt-lib/nova/src/Transport/Client.php
+badd +46 vendor/kdt-lib/nova/src/Network/Network.php
+badd +144 vendor/kdt-lib/nova/src/Network/Client/Swoole.php
+badd +3 composer.json
+badd +27 vendor/kdt-lib/nova/src/Network/Pipe/Local.php
+badd +71 vendor/kdt-lib/nova/src/Network/Pipe.php
+badd +1 vendor/kdt-lib/nova/src/Network/Server.php
+badd +4 vendor/kdt-lib/nova/src/Protocol/Container/Input.php
+badd +3 vendor/kdt-lib/nova/src/Protocol/Container/Output.php
+badd +2 vendor/kdt-lib/nova/src/Protocol/Packer/Abstracts.php
+badd +28 vendor/kdt-lib/nova/src/Protocol/Container.php
+badd +13 vendor/kdt-lib/nova/src/Service/Convert.php
+badd +3 vendor/kdt-lib/nova/src/Service/Dispatcher.php
+badd +40 vendor/kdt-lib/nova/src/Transport/Hijack/Component/Ping.php
+badd +12 vendor/kdt-lib/nova/src/Console/Daemon.php
+badd +1865 .tags
+badd +12 vendor/kdt-lib/nova/src/Protocol/Packer.php
+badd +56 vendor/kdt-lib/nova/src/Protocol/Packer/Extension.php
+badd +9 vendor/kdt-lib/nova/src/Protocol/Packer/Native.php
+badd +295 vendor/kdt-lib/nova/src/Network/Server/Swoole.php
+badd +19 vendor/kdt-lib/nova/src/Foundation/Traits/InstanceManager.php
+badd +28 vendor/kdt-lib/nova/src/Foundation/Traits/ServiceSpecManager.php
+argglobal
+silent! argdel *
+argadd get.php
+edit vendor/kdt-lib/nova/src/Network/Client/Swoole.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+15,16fold
+20,24fold
+25,29fold
+30,34fold
+35,39fold
+40,44fold
+45,49fold
+50,54fold
+55,59fold
+60,64fold
+65,69fold
+70,89fold
+90,131fold
+132,170fold
+171,178fold
+179,186fold
+187,193fold
+15
+normal! zo
+20
+normal! zo
+25
+normal! zo
+30
+normal! zo
+35
+normal! zo
+40
+normal! zo
+45
+normal! zo
+50
+normal! zo
+55
+normal! zo
+60
+normal! zo
+65
+normal! zo
+70
+normal! zo
+90
+normal! zo
+132
+normal! zo
+171
+normal! zo
+179
+normal! zo
+187
+normal! zo
+let s:l = 138 - ((14 * winheight(0) + 22) / 44)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+138
+normal! 0
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

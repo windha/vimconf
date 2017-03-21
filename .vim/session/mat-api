@@ -1,0 +1,80 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/zan_env/material/material-api
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +11 bin/nova
+badd +11 init/app.php
+badd +13 src/Utils/Server/MaterialApp.php
+badd +55 vendor/symfony/console/Application.php
+badd +19 vendor/zanphp/zan/src/Foundation/Application.php
+badd +27 vendor/mockery/mockery/library/Mockery/Container.php
+badd +74 vendor/zanphp/zan/src/Foundation/Container/Container.php
+badd +21 vendor/zanphp/zan/src/Foundation/Booting/LoadConfiguration.php
+badd +21 vendor/phpspec/prophecy/src/Prophecy/Comparator/Factory.php
+badd +11 vendor/zanphp/zan/src/Network/Server/Factory.php
+badd +7 vendor/zanphp/zan/src/Foundation/Container/Di.php
+badd +27 vendor/guzzle/guzzle/tests/Guzzle/Tests/Http/Server.php
+badd +4 vendor/zanphp/zan/src/Contract/Network/Server.php
+badd +55 vendor/zanphp/zan/src/Network/Tcp/Server.php
+badd +25 vendor/zanphp/zan/src/Network/Http/RequestHandler.php
+badd +37 vendor/zanphp/zan/src/Network/Tcp/RequestHandler.php
+badd +60 vendor/zanphp/zan/src/Network/Server/Timer/Timer.php
+badd +24 resource/config/test/connection/redis.php
+badd +28 resource/config/test/nova.php
+badd +29 resource/config/test/server.php
+argglobal
+silent! argdel *
+edit vendor/zanphp/zan/src/Network/Http/RequestHandler.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,23fold
+27,27fold
+28,28fold
+29,29fold
+30,30fold
+34,39fold
+40,73fold
+74,95fold
+96,102fold
+103,124fold
+125,129fold
+130,133fold
+let s:l = 25 - ((24 * winheight(0) + 22) / 44)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+25
+normal! 0
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

@@ -1,0 +1,235 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/yz_env/webroot/iron
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +63 v2/api/weixin/service/ImageText.php
+badd +16 v2/api/weixin/controllers/Autoreply.php
+badd +1 v2/api/weixin/controllers/ImageText.php
+badd +1 v2/www/weixin/service/ImageText.php
+badd +44 v2/www/message/service/Broadcast.php
+badd +404 v2/www/weixin/service/Autoreply.php
+badd +50 v2/api/sinaweibo/service/ImageText.php
+badd +18 v1/_public_library/showcasedata/List.php
+badd +55 vendor/iron/iron-lib/_public_library/showcasedata/List.php
+badd +1 v2/api/sinaweibo/controllers/ImageText.php
+badd +2 v2/api/sinaweibo/service/Reply.php
+badd +59 v2/api/showcase/controllers/open/Feature.php
+badd +279 v2/api/showcase/controllers/open/Homepage.php
+badd +1 v2/api/sinaweibo/controllers/Autoreply.php
+badd +1 iron/v2/api/weixin/service/NewsDetail.php
+badd +1 v2/api/weixin/service/NewsDetail.php
+badd +299 v2/api/weixin/service/Menu.php
+badd +4 v2/api/weixin/service/AdvancedNews.php
+badd +63 v2/www/weixin/service/AdvancedNews.php
+badd +1 v2/www/sinaweibo/service/Autoreply.php
+badd +4 v2/api/showcase/service/Switch.php
+badd +1 v2/wap/showcase/service/CategoryV2.php
+badd +5 v2/wap/showcase/service/Category.php
+badd +34 v2/wap/showcase/service/Feature.php
+badd +172 v2/wap/showcase/service/FeatureV2.php
+badd +34 v2/wap/showcase/service/Component.php
+badd +4 v2/www/showcase/service/Category.php
+badd +3 v2/www/showcase/service/Component.php
+badd +1 v2/www/showcase/service/Feature.php
+argglobal
+silent! argdel *
+edit v2/api/weixin/service/ImageText.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=1
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,5fold
+6,6fold
+7,7fold
+8,8fold
+9,9fold
+10,10fold
+11,11fold
+14,52fold
+54,122fold
+138,141fold
+124,176fold
+178,192fold
+193,208fold
+209,213fold
+214,217fold
+218,261fold
+263,306fold
+307,317fold
+318,343fold
+344,383fold
+384,410fold
+411,450fold
+452,546fold
+547,565fold
+566,602fold
+603,624fold
+625,632fold
+633,640fold
+641,648fold
+649,667fold
+668,694fold
+695,753fold
+754,838fold
+839,852fold
+853,937fold
+938,952fold
+5
+normal! zc
+6
+normal! zc
+7
+normal! zc
+8
+normal! zc
+9
+normal! zc
+10
+normal! zc
+11
+normal! zc
+14
+normal! zc
+54
+normal! zc
+124
+normal! zo
+124
+normal! zc
+178
+normal! zc
+193
+normal! zc
+209
+normal! zc
+214
+normal! zc
+218
+normal! zc
+263
+normal! zc
+307
+normal! zc
+318
+normal! zc
+344
+normal! zc
+384
+normal! zc
+411
+normal! zc
+452
+normal! zc
+547
+normal! zc
+566
+normal! zc
+603
+normal! zc
+625
+normal! zc
+633
+normal! zc
+641
+normal! zc
+649
+normal! zc
+668
+normal! zc
+695
+normal! zc
+754
+normal! zc
+839
+normal! zc
+853
+normal! zc
+938
+normal! zc
+let s:l = 63 - ((49 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+63
+normal! 0
+tabedit v2/www/weixin/service/Autoreply.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+8,8fold
+10,16fold
+17,22fold
+23,31fold
+32,63fold
+64,74fold
+75,85fold
+86,105fold
+106,152fold
+153,174fold
+175,195fold
+196,211fold
+212,222fold
+223,233fold
+234,244fold
+245,257fold
+258,268fold
+269,293fold
+294,305fold
+306,331fold
+332,348fold
+349,361fold
+362,379fold
+380,384fold
+385,395fold
+396,467fold
+396
+normal! zo
+let s:l = 404 - ((170 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+404
+normal! 0
+tabnext 2
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

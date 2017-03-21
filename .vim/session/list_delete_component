@@ -1,0 +1,136 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/phpservice/showcase/showcase-api
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +1 src/Feature/Service/FeatureService.php
+badd +3 vendor/php-lib/iron-lib-async/src/Showcase/DataFeature.php
+argglobal
+silent! argdel *
+edit src/Feature/Service/FeatureService.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 86) / 173)
+exe 'vert 2resize ' . ((&columns * 141 + 86) / 173)
+argglobal
+enew
+file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+5,28fold
+34,34fold
+35,35fold
+36,36fold
+37,37fold
+38,38fold
+40,40fold
+42,51fold
+52,74fold
+75,92fold
+107,107fold
+93,117fold
+118,137fold
+138,158fold
+159,184fold
+185,199fold
+200,212fold
+213,254fold
+255,284fold
+285,304fold
+305,357fold
+358,394fold
+395,426fold
+427,438fold
+439,468fold
+469,502fold
+503,513fold
+514,528fold
+529,551fold
+552,609fold
+610,620fold
+621,630fold
+631,641fold
+645,645fold
+642,650fold
+651,661fold
+662,678fold
+679,687fold
+713,713fold
+688,761fold
+93
+normal! zo
+let s:l = 350 - ((34 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+350
+normal! 013|
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 86) / 173)
+exe 'vert 2resize ' . ((&columns * 141 + 86) / 173)
+tabedit vendor/php-lib/iron-lib-async/src/Showcase/DataFeature.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 3 - ((2 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 0
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
