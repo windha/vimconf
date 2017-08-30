@@ -330,6 +330,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'passive_filetypes': ['java'] }
+
 filetype plugin indent on    
 filetype plugin on
 filetype on
@@ -354,3 +358,5 @@ let  g:vimshell_vimshrc_path = '~/.vim/vimshrc'
 "Plugin 'rayburgemeestre/phpfolding.vim' config 
 "let g:DisableAutoPHPFolding =1 
 set clipboard=unnamed
+
+
